@@ -55,7 +55,7 @@ function checkAnswer(id){
             win();
         } else {
             loseOption = id;     
-
+            document.querySelector('body').classList.add('losegame');
             document.getElementById(id).classList.add('lose') ;
             document.getElementById(corectAnswer).classList.add('win') ;
             isPlaying = false;
@@ -66,7 +66,8 @@ function checkAnswer(id){
 
 function win(){
     level += 1;
-    newLevel();    
+    newLevel(); 
+
 }
 
 function init() {
@@ -74,6 +75,8 @@ function init() {
     isPlaying = true;
     if (loseOption)
     document.getElementById(loseOption).classList.remove('lose');
+    document.querySelector('body').classList.remove('losegame');
+
     if (corectAnswer)
     document.getElementById(corectAnswer).classList.remove('win');
     newLevel();    
